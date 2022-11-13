@@ -22,6 +22,9 @@ public class CommonController {
     /** 공통 서비스 */
     private final ImageService imageService;
 
+    /** 약관 API 서비스 */
+    private final TermService termService;
+
     /**
      * 전체 프로필 이미지 조회
      * @return 전체 프로필 이미지
@@ -40,5 +43,15 @@ public class CommonController {
     public ResponseEntity<ApiResponse<?>> insertProfileImage(@RequestBody RequestImage requestImage) {
         imageService.insertProfileImage(requestImage.getUrl());
         return ResponseEntity.ok(ApiResponse.successResponse(null, MESSAGE_SUCCESS_POST_IMAGES));
+    }
+    /**
+     * 약관 추가
+     * @param requestTerm   약관 정보
+     * @return 추가 결과
+     */
+    @PostMapping("/terms")
+    public ResponseEntity<ApiResponse<?>> insertTerms(@RequestBody RequestTerm requestTerm) {
+        termService.insertTerm(requestTerm.getType(), requestTerm.getVersion(), requestTerm.getContents(), requestTerm.isRequired());
+        return ResponseEntity.ok(ApiResponse.successResponse(null, MESSAGE_SUCCESS_POST_TERMS));
     }
 }
