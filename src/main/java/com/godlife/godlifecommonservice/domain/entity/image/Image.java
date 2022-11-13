@@ -1,11 +1,9 @@
-package com.godlife.godlifecommonservice.domain.entity;
+package com.godlife.godlifecommonservice.domain.entity.image;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import com.godlife.godlifecommonservice.domain.entity.BaseEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.Comment;
 
 import javax.persistence.Column;
@@ -17,7 +15,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Image {
+public class Image extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
