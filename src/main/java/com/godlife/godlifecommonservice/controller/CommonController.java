@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.godlife.godlifecommonservice.constants.CommonConstants.MESSAGE_SUCCESS_GET_IMAGES;
-import static com.godlife.godlifecommonservice.constants.CommonConstants.MESSAGE_SUCCESS_GET_TERMS;
-import static com.godlife.godlifecommonservice.constants.CommonConstants.MESSAGE_SUCCESS_POST_IMAGES;
-import static com.godlife.godlifecommonservice.constants.CommonConstants.MESSAGE_SUCCESS_POST_TERMS;
+import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_GET_IMAGES;
+import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_GET_TERMS;
+import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_POST_IMAGES;
+import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_POST_TERMS;
 
 @RequestMapping("/commons")
 @RequiredArgsConstructor
