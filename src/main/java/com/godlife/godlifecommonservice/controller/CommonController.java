@@ -31,4 +31,14 @@ public class CommonController {
         return ResponseEntity.ok(ApiResponse.successResponse(commonService.getProfileImages(), MESSAGE_SUCCESS_GET_IMAGES));
     }
 
+    /**
+     * 프로필 이미지 추가
+     * @param requestImage       이미지 정보
+     * @return 추가 결과
+     */
+    @PostMapping("/images")
+    public ResponseEntity<ApiResponse<?>> insertProfileImage(@RequestBody RequestImage requestImage) {
+        commonService.insertProfileImage(requestImage.getUrl());
+        return ResponseEntity.ok(ApiResponse.successResponse(null, MESSAGE_SUCCESS_POST_IMAGES));
+    }
 }

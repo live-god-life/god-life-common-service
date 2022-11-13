@@ -27,4 +27,14 @@ public class CommonService {
                               .collect(Collectors.toList());
     }
 
+    /**
+     * 프로필 이미지 추가
+     */
+    public void insertProfileImage(String url) {
+        Image image = Image.builder()
+                           .url(url)
+                           .build();
+
+        imageRepository.save(image);
+    }
 }
