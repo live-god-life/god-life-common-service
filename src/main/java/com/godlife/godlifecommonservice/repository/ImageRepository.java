@@ -1,6 +1,6 @@
 package com.godlife.godlifecommonservice.repository;
 
-import com.godlife.godlifecommonservice.domain.entity.Image;
+import com.godlife.godlifecommonservice.domain.entity.image.Image;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
