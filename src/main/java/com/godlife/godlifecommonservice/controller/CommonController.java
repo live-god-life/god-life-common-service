@@ -2,7 +2,7 @@ package com.godlife.godlifecommonservice.controller;
 
 import com.godlife.godlifecommonservice.request.RequestImage;
 import com.godlife.godlifecommonservice.response.ApiResponse;
-import com.godlife.godlifecommonservice.service.CommonService;
+import com.godlife.godlifecommonservice.service.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ import static com.godlife.godlifecommonservice.constants.CommonConstants.MESSAGE
 public class CommonController {
 
     /** 공통 서비스 */
-    private final CommonService commonService;
+    private final ImageService imageService;
 
     /**
      * 전체 프로필 이미지 조회
@@ -28,7 +28,7 @@ public class CommonController {
      */
     @GetMapping("/images")
     public ResponseEntity<ApiResponse<?>> getProfileImages() {
-        return ResponseEntity.ok(ApiResponse.successResponse(commonService.getProfileImages(), MESSAGE_SUCCESS_GET_IMAGES));
+        return ResponseEntity.ok(ApiResponse.successResponse(imageService.getProfileImages(), MESSAGE_SUCCESS_GET_IMAGES));
     }
 
     /**
@@ -38,7 +38,7 @@ public class CommonController {
      */
     @PostMapping("/images")
     public ResponseEntity<ApiResponse<?>> insertProfileImage(@RequestBody RequestImage requestImage) {
-        commonService.insertProfileImage(requestImage.getUrl());
+        imageService.insertProfileImage(requestImage.getUrl());
         return ResponseEntity.ok(ApiResponse.successResponse(null, MESSAGE_SUCCESS_POST_IMAGES));
     }
 }

@@ -1,7 +1,7 @@
 package com.godlife.godlifecommonservice.service;
 
 import com.godlife.godlifecommonservice.domain.dto.ImageDto;
-import com.godlife.godlifecommonservice.domain.entity.Image;
+import com.godlife.godlifecommonservice.domain.entity.image.Image;
 import com.godlife.godlifecommonservice.repository.ImageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CommonService {
+public class ImageService {
 
     /** 이미지 Repository */
     private final ImageRepository imageRepository;
