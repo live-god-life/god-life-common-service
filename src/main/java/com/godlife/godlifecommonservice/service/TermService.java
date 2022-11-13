@@ -15,6 +15,16 @@ public class TermService {
 
     /** 약관 Repository */
     private final TermRepository termRepository;
+
+    /**
+     * 약관 조회
+     * @param type      약관 타입
+     * @return 약관
+     */
+    public TermDto getTerms(String type) {
+        return TermDto.of(termRepository.findTop1ByTypeOrderByVersionDesc(type.toUpperCase()));
+    }
+
     /**
      * 약관 추가
      * @param type      약관 타입
