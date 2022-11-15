@@ -24,14 +24,19 @@ import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAG
 @RestController
 public class CommonController {
 
-    /** 이미지 API 서비스 */
+    /**
+     * 이미지 API 서비스
+     */
     private final ImageService imageService;
 
-    /** 약관 API 서비스 */
+    /**
+     * 약관 API 서비스
+     */
     private final TermService termService;
 
     /**
      * 전체 프로필 이미지 조회
+     *
      * @return 전체 프로필 이미지
      */
     @GetMapping("/images")
@@ -41,7 +46,8 @@ public class CommonController {
 
     /**
      * 프로필 이미지 추가
-     * @param requestImage       이미지 정보
+     *
+     * @param requestImage 이미지 정보
      * @return 추가 결과
      */
     @PostMapping("/images")
@@ -52,7 +58,8 @@ public class CommonController {
 
     /**
      * 약관 조회
-     * @param type          약관 타입
+     *
+     * @param type 약관 타입
      * @return 약관
      */
     @GetMapping("/terms/{type}")
@@ -62,7 +69,8 @@ public class CommonController {
 
     /**
      * 약관 추가
-     * @param requestTerm   약관 정보
+     *
+     * @param requestTerm 약관 정보
      * @return 추가 결과
      */
     @PostMapping("/terms")

@@ -14,12 +14,16 @@ import javax.persistence.Entity;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MarketingTerm extends Term {
 
-    /** 마케팅 정보 수신 동의 생성자 */
+    /**
+     * 마케팅 정보 수신 동의 생성자
+     */
     private MarketingTerm(String version, String contents, boolean required) {
         super(version, contents, required);
     }
 
-    /** 마케팅 정보 수신 동의 객체 생성 메소드 */
+    /**
+     * 마케팅 정보 수신 동의 객체 생성 메소드
+     */
     public static MarketingTerm of(String version, String contents, boolean required) {
         return new MarketingTerm(version, contents, required);
     }

@@ -13,12 +13,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TermService {
 
-    /** 약관 Repository */
+    /**
+     * 약관 Repository
+     */
     private final TermRepository termRepository;
 
     /**
      * 약관 조회
-     * @param type      약관 타입
+     *
+     * @param type 약관 타입
      * @return 약관
      */
     public TermDto getTerms(String type) {
@@ -27,10 +30,11 @@ public class TermService {
 
     /**
      * 약관 추가
-     * @param type      약관 타입
-     * @param version   약관 버전
-     * @param contents  약관 컨텐츠
-     * @param required  약관 필수 여부
+     *
+     * @param type     약관 타입
+     * @param version  약관 버전
+     * @param contents 약관 컨텐츠
+     * @param required 약관 필수 여부
      */
     public void insertTerm(String type, String version, String contents, boolean required) {
         Term term = getTermFactory(type, version, contents, required);
@@ -40,10 +44,11 @@ public class TermService {
 
     /**
      * 약관 팩토리
-     * @param type      약관 타입
-     * @param version   약관 버전
-     * @param contents  약관 컨텐츠
-     * @param required  약관 필수 여부
+     *
+     * @param type     약관 타입
+     * @param version  약관 버전
+     * @param contents 약관 컨텐츠
+     * @param required 약관 필수 여부
      * @return 약관 Entity
      */
     private Term getTermFactory(String type, String version, String contents, boolean required) {

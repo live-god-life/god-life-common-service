@@ -26,7 +26,7 @@ public abstract class Term extends BaseEntity {
     @Comment("약관 아이디")
     private Long termId;
 
-    @Column(name="type", insertable = false, updatable = false)
+    @Column(name = "type", insertable = false, updatable = false)
     @Comment("약관 타입")
     protected String type;
 
@@ -39,7 +39,9 @@ public abstract class Term extends BaseEntity {
     @Comment("약관 필수 여부")
     private boolean required;
 
-    /** Term 생성자 */
+    /**
+     * Term 생성자
+     */
     protected Term(String version, String contents, boolean required) {
         this.version = version;
         this.contents = contents;

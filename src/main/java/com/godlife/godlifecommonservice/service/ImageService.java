@@ -13,18 +13,21 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ImageService {
 
-    /** 이미지 Repository */
+    /**
+     * 이미지 Repository
+     */
     private final ImageRepository imageRepository;
 
     /**
      * 전체 프로필 이미지 조회
+     *
      * @return
      */
     public List<ImageDto> getProfileImages() {
         return imageRepository.findAll()
-                              .stream()
-                              .map(image -> ImageDto.of(image.getUrl()))
-                              .collect(Collectors.toList());
+                .stream()
+                .map(image -> ImageDto.of(image.getUrl()))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -32,8 +35,8 @@ public class ImageService {
      */
     public void insertProfileImage(String url) {
         Image image = Image.builder()
-                           .url(url)
-                           .build();
+                .url(url)
+                .build();
 
         imageRepository.save(image);
     }

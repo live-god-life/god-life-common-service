@@ -13,12 +13,16 @@ import javax.persistence.Entity;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UseTerm extends Term {
 
-    /** 이용 약관 생성자 */
+    /**
+     * 이용 약관 생성자
+     */
     private UseTerm(String version, String contents, boolean required) {
         super(version, contents, required);
     }
 
-    /** 이용 약관 객체 생성 메소드 */
+    /**
+     * 이용 약관 객체 생성 메소드
+     */
     public static UseTerm of(String version, String contents, boolean required) {
         return new UseTerm(version, contents, required);
     }

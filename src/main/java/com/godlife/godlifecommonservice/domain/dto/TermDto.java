@@ -11,27 +11,37 @@ import lombok.Setter;
 @Setter
 public class TermDto {
 
-    /** 약관 타입 */
+    /**
+     * 약관 타입
+     */
     private String type;
 
-    /** 약관 버전 */
+    /**
+     * 약관 버전
+     */
     private String version;
 
-    /** 약관 내용 */
+    /**
+     * 약관 내용
+     */
     private String contents;
 
-    /** 약관 필수 여부 */
+    /**
+     * 약관 필수 여부
+     */
     private boolean required;
 
-    /** 약관 Entity-DTO 변환 메소드 */
+    /**
+     * 약관 Entity-DTO 변환 메소드
+     */
     public static TermDto of(Term term) {
-        if(term == null)    return null;
+        if (term == null) return null;
 
         return TermDto.builder()
-                      .type(term.getType())
-                      .version(term.getVersion())
-                      .contents(term.getContents())
-                      .required(term.isRequired())
-                      .build();
+                .type(term.getType())
+                .version(term.getVersion())
+                .contents(term.getContents())
+                .required(term.isRequired())
+                .build();
     }
 }
