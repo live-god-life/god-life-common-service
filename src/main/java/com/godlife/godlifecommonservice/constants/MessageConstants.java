@@ -21,4 +21,9 @@ public class MessageConstants {
      * 약관 추가 성공 메시지
      */
     public static final String MESSAGE_SUCCESS_POST_TERMS = "약관을 추가했습니다.";
+
+    /**
+     * 코드 조회 성공 메시지
+     */
+    public static final String MESSAGE_SUCCESS_GET_CODES = "코드를 조회했습니다.";
 }

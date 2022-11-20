@@ -1,5 +1,7 @@
 package com.godlife.godlifecommonservice.controller;
 
+import static com.godlife.godlifecommonservice.constants.MessageConstants.*;
+
 import com.godlife.godlifecommonservice.request.RequestImage;
 import com.godlife.godlifecommonservice.request.RequestTerm;
 import com.godlife.godlifecommonservice.response.ApiResponse;
@@ -13,11 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_GET_IMAGES;
-import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_GET_TERMS;
-import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_POST_IMAGES;
-import static com.godlife.godlifecommonservice.constants.MessageConstants.MESSAGE_SUCCESS_POST_TERMS;
 
 @RequestMapping("/commons")
 @RequiredArgsConstructor
@@ -77,5 +74,15 @@ public class CommonController {
     public ResponseEntity<ApiResponse<?>> insertTerms(@RequestBody RequestTerm requestTerm) {
         termService.insertTerm(requestTerm.getType(), requestTerm.getVersion(), requestTerm.getContents(), requestTerm.isRequired());
         return ResponseEntity.ok(ApiResponse.successResponse(null, MESSAGE_SUCCESS_POST_TERMS));
+    }
+
+    /**
+     * 카테고리 조회
+     *
+     * @return 카테고리 리스트
+     */
+    @GetMapping("/categories")
+    public ResponseEntity<ApiResponse<?>> getCategories() {
+        return ResponseEntity.ok(ApiResponse.successResponse(termService.getCategories(), MESSAGE_SUCCESS_GET_CODES));
     }
 }

@@ -1,10 +1,15 @@
 package com.godlife.godlifecommonservice.service;
 
+import java.util.List;
+
 import com.godlife.godlifecommonservice.domain.dto.TermDto;
+import com.godlife.godlifecommonservice.domain.entity.Code;
 import com.godlife.godlifecommonservice.domain.entity.MarketingTerm;
 import com.godlife.godlifecommonservice.domain.entity.PrivacyTerm;
 import com.godlife.godlifecommonservice.domain.entity.Term;
 import com.godlife.godlifecommonservice.domain.entity.UseTerm;
+import com.godlife.godlifecommonservice.domain.enums.CodeKind;
+import com.godlife.godlifecommonservice.repository.CodeRepository;
 import com.godlife.godlifecommonservice.repository.TermRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +22,10 @@ public class TermService {
      * 약관 Repository
      */
     private final TermRepository termRepository;
+    /**
+     * 코드 Repository
+     */
+    private final CodeRepository codeRepository;
 
     /**
      * 약관 조회
@@ -62,5 +71,13 @@ public class TermService {
             default:
                 return null;
         }
+    }
+    /**
+     * 카테고리 조회
+     *
+     * @return 코드리스트
+     */
+    public List<Code> getCategories() {
+        return codeRepository.findAllByKind(CodeKind.CATEGORY.name());
     }
 }
