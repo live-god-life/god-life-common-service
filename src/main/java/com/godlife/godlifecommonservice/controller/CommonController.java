@@ -1,13 +1,15 @@
 package com.godlife.godlifecommonservice.controller;
 
-import static com.godlife.godlifecommonservice.constants.MessageConstants.*;
-
 import com.godlife.godlifecommonservice.request.RequestImage;
 import com.godlife.godlifecommonservice.request.RequestTerm;
 import com.godlife.godlifecommonservice.response.ApiResponse;
 import com.godlife.godlifecommonservice.service.ImageService;
 import com.godlife.godlifecommonservice.service.TermService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.NoSuchElementException;
+
+import static com.godlife.godlifecommonservice.constants.MessageConstants.*;
 
 @RequestMapping("/commons")
 @RequiredArgsConstructor
@@ -51,6 +60,30 @@ public class CommonController {
     public ResponseEntity<ApiResponse<?>> insertProfileImage(@RequestBody RequestImage requestImage) {
         imageService.insertProfileImage(requestImage.getUrl());
         return ResponseEntity.ok(ApiResponse.successResponse(null, MESSAGE_SUCCESS_POST_IMAGES));
+    }
+
+    /**
+     * 프로필 이미지 접근
+     *
+     * @param imageName 이미지명
+     * @return 프로필 이미지
+     */
+    @GetMapping("/images/{imageName}")
+    public ResponseEntity<Resource> getImage(
+            @PathVariable(value = "imageName") String imageName) {
+        try {
+            String path = "/home/images/commons/";
+            FileSystemResource resource = new FileSystemResource(path + imageName);
+            if (!resource.exists()) {
+                throw new NoSuchElementException();
+            }
+            HttpHeaders header = new HttpHeaders();
+            Path filePath = Paths.get(path + imageName);
+            header.add("Content-Type", Files.probeContentType(filePath));
+            return new ResponseEntity<>(resource, header, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new NoSuchElementException();
+        }
     }
 
     /**
