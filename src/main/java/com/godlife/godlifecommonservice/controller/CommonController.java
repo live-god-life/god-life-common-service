@@ -71,7 +71,7 @@ public class CommonController {
     @GetMapping("/images/{imageName}")
     public ResponseEntity<Resource> getImage(
             @PathVariable(value = "imageName") String imageName) {
-        try {
+        try { 
             String path = "/home/images/commons/";
             FileSystemResource resource = new FileSystemResource(path + imageName);
             if (!resource.exists()) {
