@@ -72,7 +72,7 @@ public class CommonController {
     public ResponseEntity<Resource> getImage(
             @PathVariable(value = "imageName") String imageName) {
         try {
-            String path = "/images/";
+            String path = "/images/commons/";
             FileSystemResource resource = new FileSystemResource(path + imageName);
             if (!resource.exists()) {
                 throw new NoSuchElementException();
