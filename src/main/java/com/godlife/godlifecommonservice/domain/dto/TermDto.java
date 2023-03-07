@@ -29,7 +29,7 @@ public class TermDto {
     /**
      * 약관 필수 여부
      */
-    private boolean required;
+    private String required;
 
     /**
      * 약관 Entity-DTO 변환 메소드
@@ -41,7 +41,7 @@ public class TermDto {
                 .type(term.getType())
                 .version(term.getVersion())
                 .contents(term.getContents())
-                .required(term.isRequired())
+                .required(term.getRequired())
                 .build();
     }
 }

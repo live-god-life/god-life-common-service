@@ -105,7 +105,7 @@ public class CommonController {
      */
     @PostMapping("/terms")
     public ResponseEntity<ApiResponse<?>> insertTerms(@RequestBody RequestTerm requestTerm) {
-        termService.insertTerm(requestTerm.getType(), requestTerm.getVersion(), requestTerm.getContents(), requestTerm.isRequired());
+        termService.insertTerm(requestTerm.getType(), requestTerm.getVersion(), requestTerm.getContents(), requestTerm.getRequired());
         return ResponseEntity.ok(ApiResponse.successResponse(null, MESSAGE_SUCCESS_POST_TERMS));
     }
 

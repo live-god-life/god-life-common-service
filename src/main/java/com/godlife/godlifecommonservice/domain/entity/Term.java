@@ -39,12 +39,12 @@ public abstract class Term extends BaseEntity {
     private String contents;
 
     @Comment("약관 필수 여부")
-    private boolean required;
+    private String required;
 
     /**
      * Term 생성자
      */
-    protected Term(String version, String contents, boolean required) {
+    protected Term(String version, String contents, String required) {
         this.version = version;
         this.contents = contents;
         this.required = required;

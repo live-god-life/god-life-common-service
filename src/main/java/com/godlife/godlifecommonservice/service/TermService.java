@@ -45,7 +45,7 @@ public class TermService {
      * @param contents 약관 컨텐츠
      * @param required 약관 필수 여부
      */
-    public void insertTerm(String type, String version, String contents, boolean required) {
+    public void insertTerm(String type, String version, String contents, String required) {
         Term term = getTermFactory(type, version, contents, required);
 
         termRepository.save(term);
@@ -60,7 +60,7 @@ public class TermService {
      * @param required 약관 필수 여부
      * @return 약관 Entity
      */
-    private Term getTermFactory(String type, String version, String contents, boolean required) {
+    private Term getTermFactory(String type, String version, String contents, String required) {
         switch (type) {
             case "use":
                 return UseTerm.of(version, contents, required);
