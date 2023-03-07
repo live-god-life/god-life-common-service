@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Lob;
 
 @Entity
 @Getter
@@ -33,6 +34,7 @@ public abstract class Term extends BaseEntity {
     @Comment("약관 버전")
     private String version;
 
+    @Lob
     @Comment("약관 내용")
     private String contents;
 
