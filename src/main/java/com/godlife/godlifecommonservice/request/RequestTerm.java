@@ -23,5 +23,5 @@ public class RequestTerm {
     /**
      * 약관 필수 여부
      */
-    private boolean required;
+    private String required;
 }
